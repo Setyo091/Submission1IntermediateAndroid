@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StoryApp</string>
+    <string name="signup">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="message_welcome_page">Upload Your Story Every Day!</string>
+    <string name="title_welcome_page">Selamat datang di StoryApp!</string>
+    <string name="title_signup_page">Lengkapi data dirimu di bawah ini ya</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="message_login_page">Masukkan dulu datamu ya</string>
+    <string name="title_login_page">Sudah tidak sabar untuk mengupload story mu?</string>
+    <string name="name">Nama</string>
+    <string name="message_main_page">Selamat Menikmati.</string>
+    <string name="greeting">Halo %1$s,</string>
+    <string name="logout">Keluar</string>
+    <string name="error">Ini adalah kesalahan pesan</string>
+    <string name="massage_login">Anda berhasil login. Sudah tidak sabar untuk upload hari mu ya? letsgo!?</string>
+    <string name="email_tidak_boleh_kosong">email tidak boleh kosong</string>
+    <string name="password_tidak_boleh_kosong">password tidak boleh kosong</string>
+    <string name="tombol_logout">Logout</string>
+    <string name="change_language">Ganti Bahasa</string>
+    <string name="description">Deskripsi</string>
+    <string name="upload_story">Unggah Cerita</string>
+    <string name="camera">kamera</string>
+    <string name="gallery">galeri</string>
+    <string name="upload">unggah</string>
+    <string name="invalidEmail">Email Invalid\n</string>
+    <string name="mapsactivity">MapsActivity</string>
+    <string name="normal_type">normal</string>
+    <string name="satelit_type">satelit</string>
+    <string name="terrain_type">terrain</string>
+    <string name="hybrid_type">hybrid</string>
+    <string name="retry">retry</string>
+    <string name="empty_image_warning">Not found image</string>
+    <string name="checkbox_type">Do you want to share your location?</string>
+    <string name="location_message">Your location was successfully authorized</string>
+</resources>

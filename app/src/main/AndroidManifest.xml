@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/Base.Theme.Submission1IntermediateAndroid">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAJ1-06LZ1JQgPdlzpIbLJTQBejqdhJOIY" />
+        <activity
+            android:name=".view.login.maps.MapsActivity"
+            android:exported="false"
+            android:label="@string/mapsactivity" />
+        <activity
+            android:name=".splash.SplashActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.login.addstory.AddStoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.login.detail.DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.login.welcome.WelcomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.login.signup.SignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.login.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.login.main.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

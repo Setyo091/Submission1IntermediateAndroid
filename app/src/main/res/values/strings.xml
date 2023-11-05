@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">StoryApp</string>
+    <string name="signup">Register</string>
+    <string name="login">Login</string>
+    <string name="message_welcome_page">Upload Your Story Every Day!</string>
+    <string name="title_welcome_page">Welcome to StoryApp!</string>
+    <string name="title_signup_page">Complete your data</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="message_login_page">Enter your data first</string>
+    <string name="title_login_page">Cant wait to upload your story?</string>
+    <string name="name">Name</string>
+    <string name="message_main_page">Enjoy</string>
+    <string name="greeting">Hallo %1$s,</string>
+    <string name="logout">Logout</string>
+    <string name="error">This is the error message</string>
+    <string name="massage_login">You have successfully logged in. Cant wait to upload your day? letsgo!</string>
+    <string name="email_tidak_boleh_kosong">Email cannot be empty</string>
+    <string name="password_tidak_boleh_kosong">The password cannot be empty</string>
+    <string name="tombol_logout">Logout</string>
+    <string name="change_language">Change Language</string>
+    <string name="description">Description</string>
+    <string name="upload_story">upload story</string>
+    <string name="camera">camera</string>
+    <string name="gallery">gallery</string>
+    <string name="upload">upload</string>
+    <string name="invalidEmail">Email Invalid\n</string>
+    <string name="mapsactivity">MapsActivity</string>
+    <string name="normal_type">normal</string>
+    <string name="satelit_type">satelit</string>
+    <string name="terrain_type">terrain</string>
+    <string name="hybrid_type">hybrid</string>
+    <string name="retry">retry</string>
+    <string name="empty_image_warning">Not found image</string>
+    <string name="checkbox_type">Do you want to share your location?</string>
+    <string name="location_message">Your location was successfully authorized</string>
+</resources>
