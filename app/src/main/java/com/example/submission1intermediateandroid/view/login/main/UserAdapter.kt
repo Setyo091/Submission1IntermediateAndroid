@@ -22,24 +22,22 @@ class UserAdapter : PagingDataAdapter<ListStoryItem, UserAdapter.MyViewHolder>(D
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val user = getItem(position)
-        if (user != null) {
-            holder.bind(user)
-        }
+        holder.bind(user)
     }
 
     inner class MyViewHolder(private val binding: ItemStoryBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(itemName: ListStoryItem) {
-            binding.isName.text = itemName.name
+        fun bind(itemName: ListStoryItem?) {
+            binding.isName.text = itemName?.name
             Glide.with(binding.root)
-                .load(itemName.photoUrl)
+                .load(itemName?.photoUrl)
                 .into(binding.isPhoto)
             binding.root.setOnClickListener {
                 val intentDetail = Intent(binding.root.context, DetailActivity::class.java)
-                intentDetail.putExtra(DetailActivity.ID, itemName.id)
-                intentDetail.putExtra(DetailActivity.NAME, itemName.name)
-                intentDetail.putExtra(DetailActivity.DESCRIPTION, itemName.description)
-                intentDetail.putExtra(DetailActivity.PICTURE, itemName.photoUrl)
+                intentDetail.putExtra(DetailActivity.ID, itemName?.id)
+                intentDetail.putExtra(DetailActivity.NAME, itemName?.name)
+                intentDetail.putExtra(DetailActivity.DESCRIPTION, itemName?.description)
+                intentDetail.putExtra(DetailActivity.PICTURE, itemName?.photoUrl)
                 binding.root.context.startActivity(intentDetail)
             }
         }

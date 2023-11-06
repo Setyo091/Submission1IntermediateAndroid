@@ -17,6 +17,7 @@ import com.example.submission1intermediateandroid.R
 import com.example.submission1intermediateandroid.data.Result
 import com.example.submission1intermediateandroid.databinding.ActivityMainBinding
 import com.example.submission1intermediateandroid.data.ViewModelFactory
+import com.example.submission1intermediateandroid.pref.dataStore
 import com.example.submission1intermediateandroid.view.login.maps.MapsActivity
 import com.example.submission1intermediateandroid.view.login.addstory.AddStoryActivity
 import com.example.submission1intermediateandroid.view.login.welcome.WelcomeActivity
@@ -28,7 +29,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private var storyAdapter = UserAdapter()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -41,23 +41,28 @@ class MainActivity : AppCompatActivity() {
         itemDecoration()
         setUpAction()
 
-        binding.rvMain.adapter = storyAdapter.withLoadStateFooter(
-            footer = LoadingStateAdapter {
-                storyAdapter.retry()
-            })
+//        binding.rvMain.adapter = storyAdapter.withLoadStateFooter(
+//            footer = LoadingStateAdapter {
+//                storyAdapter.retry()
+//            })
 
-        viewModel.getSession().observe(this) { user ->
-            Log.d("token", "onCreate: ${user.token}")
-            Log.d("user", "onCreate: ${user.isLogin}")
-            if (!user.isLogin) {
-                startActivity(Intent(this, WelcomeActivity::class.java))
-                finish()
+            binding.rvMain.adapter = storyAdapter.withLoadStateFooter(
+                footer = LoadingStateAdapter {
+                    storyAdapter.retry()
+                })
+
+            viewModel.getSession().observe(this) { user ->
+                Log.d("token", "onCreate: ${user.token}")
+                Log.d("user", "onCreate: ${user.isLogin}")
+                if (!user.isLogin) {
+                    startActivity(Intent(this, WelcomeActivity::class.java))
+                    finish()
+                }
             }
-        }
 
-        viewModel.story.observe(this) { story ->
-            storyAdapter.submitData(lifecycle, story)
-        }
+            viewModel.dataStory.observe(this) { story ->
+                storyAdapter.submitData(lifecycle, story)
+            }
         binding.topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.upload_story -> {
@@ -85,7 +90,10 @@ class MainActivity : AppCompatActivity() {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
     }
-
+    override fun onResume() {
+        super.onResume()
+        viewModel.getStories()
+    }
     private fun setUpAction() {
         binding.storyLocation.setOnClickListener {
             val intent = (Intent(this, MapsActivity::class.java))
@@ -99,6 +107,15 @@ class MainActivity : AppCompatActivity() {
 
         val itemDecoration = DividerItemDecoration(this, layoutManager.orientation)
         binding.rvMain.addItemDecoration(itemDecoration)
+    }
+    fun showLoading(isLoading: Boolean) {
+        binding.apply {
+            if (isLoading) {
+                progressBarMain.visibility = View.VISIBLE
+            } else {
+                progressBarMain.visibility = View.GONE
+            }
+        }
     }
 }
 

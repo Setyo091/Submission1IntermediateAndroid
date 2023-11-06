@@ -26,5 +26,19 @@ class MainViewModel(private val repository: UserRepository) : ViewModel() {
         }
     }
 
-    val story: LiveData<PagingData<ListStoryItem>> = repository.getStories().cachedIn(viewModelScope)
+    private val listStory = MutableLiveData<PagingData<ListStoryItem>>()
+    val dataStory: LiveData<PagingData<ListStoryItem>> = listStory
+
+    init {
+        getStories()
+    }
+
+    fun getStories() {
+        viewModelScope.launch {
+            val storyResponse = repository.getStories()
+            storyResponse.asFlow().collect {
+                listStory.value = it
+            }
+        }
+    }
 }
