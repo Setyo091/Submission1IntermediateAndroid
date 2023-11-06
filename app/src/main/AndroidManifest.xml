@@ -23,7 +23,7 @@
         android:theme="@style/Base.Theme.Submission1IntermediateAndroid">
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAJ1-06LZ1JQgPdlzpIbLJTQBejqdhJOIY" />
+            android:value="AIzaSyB_7sTuY8dydpNwPHEjdrUMg-4OnmOeuWc" />
         <activity
             android:name=".view.login.maps.MapsActivity"
             android:exported="false"
@@ -55,6 +55,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name="com.google.android.gms.metadata.ModuleDependencies"
+            android:enabled="false"
+            android:exported="false"
+            tools:ignore="MissingClass">
+            <intent-filter>
+                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
+            </intent-filter>
+
+            <meta-data
+                android:name="photopicker_activity:0:required"
+                android:value="" />
+        </service>
     </application>
 
 </manifest>
